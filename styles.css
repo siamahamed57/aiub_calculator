@@ -25,7 +25,7 @@ body, h1, p, ul, li {
     width: 80%;
     max-width: 300px;
     margin: 500px auto;
-    margin-top: 100px;
+    margin-top: 50px;
     background-color: #ffffff5d; /* White background */
     padding: 30px;
     box-shadow: 0 8px 20px rgba(255, 2, 255, 0); /* Soft shadow */
@@ -66,7 +66,6 @@ label[for="credit"] {
 #credit {
     width: 100%;
     padding: 14px;
-    margin-top: 20px;
     margin: 8px 0 20px 0;
     border: 1px solid #ddd;
     border-radius: 50px;
@@ -82,22 +81,36 @@ label[for="credit"] {
 }
 
 button {
-    width: 100%;
+    width:100%;
     padding: 14px;
-    background-color: #bd1e80; /* Green accent color */
-    color: #fff;
-    border: none;
-    margin-top: 20px;
+    margin-top:20px;
     border-radius: 50px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    transition: background-color 0.3s; /* Smooth transition */
-}
-
-button:hover {
-    background-color: #0fae1d; /* Darker green on hover */
-}
+    cursor:pointer;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+  }
+  
+  button:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+  }
+  
+  button:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+  }
+  
 
 .result-item {
     margin-bottom: 10px;
@@ -107,5 +120,142 @@ button:hover {
     border: 1px solid #ddd; /* Light gray border */
     border-radius: 8px;
 }
+.loader {
+    --ballcolor: #b10c51;
+    --shadow: 0px 0 #73aa0e;
+    --shadowcolor: #0ec48db7;
+    width: 10px;
+    height: 10px;
+    left: -120px;
+    margin-top: 20px;
+    margin-left: 43%;
+    border-radius: 50%;
+    position: relative;
+    color: var(--ballcolor);
+    animation: shadowRolling 5s linear infinite;
+  }
+  
+  @keyframes shadowRolling {
+    
+    0% {
+      box-shadow: var(--shadow),
+          var(--shadow),
+          var(--shadow),
+          var(--shadow);
+    }
+  
+    12% {
+      box-shadow: 100px 0 var(--ballcolor),
+          var(--shadow),
+          var(--shadow), 
+          var(--shadow);
+    }
+  
+    25% {
+      box-shadow: 110px 0 var(--ballcolor),
+          100px 0 var(--ballcolor),
+          var(--shadow), 
+          var(--shadow);
+    }
+  
+    36% {
+      box-shadow: 120px 0 var(--ballcolor), 
+          110px 0 var(--ballcolor), 
+          100px 0 var(--ballcolor), 
+           var(--shadow);
+    }
+  
+    50% {
+      box-shadow: 130px 0 var(--ballcolor),
+          120px 0 var(--ballcolor),
+          110px 0 var(--ballcolor),
+          100px 0 var(--ballcolor);
+    }
+  
+    62% {
+      box-shadow: 200px 0 var(--shadowcolor),
+           130px 0 var(--ballcolor), 
+           120px 0 var(--ballcolor), 
+           110px 0 var(--ballcolor);
+    }
+  
+    75% {
+      box-shadow: 200px 0 var(--shadowcolor),
+          200px 0 var(--shadowcolor),
+          130px 0 var(--ballcolor), 
+          120px 0 var(--ballcolor);
+    }
+  
+    87% {
+      box-shadow: 200px 0 var(--shadowcolor), 
+          200px 0 var(--shadowcolor), 
+          200px 0 var(--shadowcolor), 
+          130px 0 var(--ballcolor);
+    }
+  
+    100% {
+      box-shadow: 200px 0 var(--shadowcolor), 
+          200px 0 var(--shadowcolor),
+          200px 0 var(--shadowcolor),
+          200px 0 var(--shadowcolor);
+    }
+  }
 
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 25px;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    transition: .4s;
+    border-radius:50px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(0, 0, 0);
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: #ffffff;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(17px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
   
