@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIUB CGPA Calculator</title>
+  <title>CGPA Calculator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="loader"></div>
   <div class="container">
+    
     <h2>AIUB-CGPA Calculator</h2>
     <form id="cgpa-form">
       <label for="course-name">Course Name:</label>
@@ -19,11 +21,78 @@
         <option value="3">3 Credit Hours</option>
       </select>
       <label for="grade">Grade:</label>
+    
       <input type="number" id="grade" min="0" max="4" step="0.01" required>
-      <button type="button" onclick="calculateCGPA()">Add Course</button>
+      
+    <h3>AIUB Grading Policy</h3>
+    <label class="toggle-switch">
+      <input type="checkbox" id="show-grading-system" onchange="toggleGradingSystem()">
+      <span class="slider round"></span>
+    </label>
+    
+    <div id="grading-policy" style="display: none;">
+      <!-- Insert grading policy table here -->
+      <table>
+        <tr>
+          <th>Range</th>
+          <th>Grade</th>
+          <th>Grade Points</th>
+        </tr>
+        <tr>
+          <td>90 - 100</td>
+          <td>A+</td>
+          <td>4.00</td>
+        </tr>
+        <tr>
+          <td>85 - &lt; 90</td>
+          <td>A</td>
+          <td>3.75</td>
+        </tr>
+        <tr>
+          <td>80 - &lt; 85</td>
+          <td>B+</td>
+          <td>3.50</td>
+        </tr>
+        <tr>
+          <td>75 - &lt; 80</td>
+          <td>B</td>
+          <td>3.25</td>
+        </tr>
+        <tr>
+          <td>70 - &lt; 75</td>
+          <td>C+</td>
+          <td>3.00</td>
+        </tr>
+        <tr>
+          <td>65 - &lt; 70</td>
+          <td>C</td>
+          <td>2.75</td>
+        </tr>
+        <tr>
+          <td>60 - &lt; 65</td>
+          <td>D+</td>
+          <td>2.50</td>
+        </tr>
+        <tr>
+          <td>50 - &lt; 60</td>
+          <td>D</td>
+          <td>2.25</td>
+        </tr>
+        <tr>
+          <td>&lt; 50</td>
+          <td>F</td>
+          <td>0.00</td>
+        </tr>
+      </table>
+    </div>
+    
+      <button onclick="calculateCGPA()">ADD COurse</button>
     </form>
+
+
     <div id="result"></div>
   </div>
+  
   <script src="script.js"></script>
 </body>
 </html>
