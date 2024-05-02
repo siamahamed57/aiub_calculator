@@ -66,3 +66,13 @@ function calculateCGPA() {
         alert("Please enter valid course name, credit hours, and grade.");
     }
 }
+function toggleGradingSystem() {
+    const gradingSystem = document.getElementById('grading-policy');
+    const toggleSwitch = document.getElementById('show-grading-system');
+    
+    if (toggleSwitch.checked) {
+        gradingSystem.style.display = 'block'; // Show grading system
+    } else {
+        gradingSystem.style.display = 'none'; // Hide grading system
+    }
+}
